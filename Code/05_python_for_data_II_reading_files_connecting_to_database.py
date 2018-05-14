@@ -1,0 +1,54 @@
+# Review
+
+
+
+#
+# Read and write files using the built-in Python file methods
+# (For Python 3.x, be sure to use the ExampleSnippets3.txt file)
+
+def main():  
+  # Open a file for writing and create it if it doesn't exist
+  f = open("textfile.txt","w+")
+  
+  # Open the file for appending text to the end
+#  f = open("textfile.txt","a+")
+
+  # write some lines of data to the file
+  for i in range(10):
+    f.write("This is line %d\r\n" % (i+1))
+  
+  # close the file when done
+  f.close()
+  
+  # Open the file back up and read the contents
+  f = open("textfile.txt","r")
+  if f.mode == 'r': # check to make sure that the file was opened
+    # use the read() function to read the entire file
+#     contents = f.read()
+#     print contents
+    
+    fl = f.readlines() # readlines reads the individual lines into a list
+    for x in fl:
+      print x
+    
+if __name__ == "__main__":
+  main()
+
+
+
+
+
+import csv
+titles = [x[0] for x in csv.reader(open('read.csv', 'rb'))]
+writer = csv.writer(open('write.csv', 'wb'))
+writer.writerow(titles)
+for row in csv.reader(open('data.csv', 'rb')):
+    writer.writerow(row)
+
+
+
+# Connecting to a Database
+# Running SQL with Python
+# Writing to a file from a Database
+
+
